@@ -1,0 +1,190 @@
+
+body {
+  background-color: #0f1115; /*fundo*/
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;  /*organiza em colunas*/
+  min-height: 100vh;
+  color: #dee2e6;
+}
+
+.titulo {
+  background-color: transparent;  /*fundo transparente*/
+  padding: 1.5rem 0;
+  margin-bottom: 0;
+  text-align: center;
+  box-shadow: none;
+  position: relative;
+}
+
+.titulo::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(77, 208, 225, 0.3), transparent);
+}
+
+.tituloTexto{
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  letter-spacing: 0.5px;
+}
+
+.tituloTexto img {
+  opacity: 0.9;
+  width: 30px;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
+.tituloTexto:hover img {
+  transform: rotate(10deg);
+}
+
+/* CONTAINER DOS PAINÉIS (MANTIDO) */
+.painel-dashboard {
+  flex: 1;
+  padding: 2rem 1rem;
+}
+
+.painel {
+  background-color: #1a1d23;
+  border-radius: 14px;
+  padding: 28px 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  margin: 1.5rem auto;
+  width: 100%;
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* CABEÇALHO DOS PAINÉIS COM LINHA ESTENDIDA (COMO PEDIU) */
+.painel-header {
+  position: relative;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.painel-header h4 {
+  font-weight: 500;
+  color: #ffffff;
+  padding-bottom: 12px;
+  margin-bottom: 0;
+  font-size: 1.4rem;
+  display: inline-block;
+  position: relative;
+}
+
+/* Linha colorida estendida */
+.painel-header h4::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%; /* Agora ocupa toda a largura do texto */
+  height: 3px;
+  background: linear-gradient(90deg, #4dd0e1, #3a7bd5);
+  border-radius: 3px;
+}
+
+/* CARDS (MELHORIAS SUTIS) */
+.moeda-card {
+  background-color: #252b33;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  padding: 18px 20px;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.moeda-card:hover {
+  transform: translateY(-3px);
+  background-color: #2f353d;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+.moeda-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(77, 208, 225, 0.05), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.moeda-card:hover::before {
+  opacity: 1;
+}
+
+.card-body img.imagem {
+  width: 38px;
+  height: 28px;
+  object-fit: contain;
+  transition: all 0.25s ease;
+}
+
+.moeda-card:hover img.imagem {
+  transform: scale(1.1);
+}
+
+.moeda-nome {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #f1f1f1;
+}
+
+.moeda-valor {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #4dd0e1;
+  position: relative;
+}
+
+.moeda-valor::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(77, 208, 225, 0.5), transparent);
+}
+
+/* ANIMAÇÕES (MANTIDO) */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Espaçamento entre os cards */
+.row .col {
+  margin-bottom: 1rem;
+}
+
+/* RESPONSIVIDADE (MANTIDO) */
+@media (max-width: 768px) {
+  .painel {
+    padding: 20px;
+  }
+  .titulo-refinado {
+    font-size: 1.5rem;
+  }
+}
